@@ -129,6 +129,10 @@
                 android:background="#EEEEEE"
                 android:onClick="SignUp"
                 android:text="Sign Up" />
+
         </LinearLayout>
+
+
     </RelativeLayout>
+
 </ScrollView>

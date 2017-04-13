@@ -12,8 +12,7 @@
             android:name=".Dashboard"
             android:label="DashBoard"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

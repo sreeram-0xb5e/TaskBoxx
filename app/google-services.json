@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "629462529132",
+    "firebase_url": "https://browsy-bc721.firebaseio.com",
+    "project_id": "browsy-bc721",
+    "storage_bucket": "browsy-bc721.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629462529132:android:50e3b5ef2ef861e3",
+        "android_client_info": {
+          "package_name": "com.example.taskboxx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "629462529132-b6vra23omvdfhos88osa7bvv0p1g8lrv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsz9xV3HCn9UXJ6TOP2mlRNeTGVSDw9gE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
