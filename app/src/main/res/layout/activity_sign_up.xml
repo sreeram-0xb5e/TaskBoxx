@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:hint="New Password" />
         </android.support.design.widget.TextInputLayout>
 
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:hint="Confirm password" />
         </android.support.design.widget.TextInputLayout>
 
