@@ -10,10 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/Pass_textLayout"
+        android:layout_below="@+id/LoginPass_textLayout"
         android:paddingLeft="125dp"
         android:paddingRight="125dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="42.5dp">
     <Button
         android:id="@+id/login"
         style="@style/Widget.AppCompat.Button.Borderless"
@@ -27,25 +27,25 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/RollNo_textLayout"
+        android:id="@+id/LoginUname_textLayout"
         android:layout_centerInParent="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
-        <EditText android:id="@+id/input_RollNo"
+        <EditText android:id="@+id/input_uname_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:inputType="text"
-            android:hint="College Roll No." />
+            android:hint="Username or Email" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:id="@+id/Pass_textLayout"
-        android:layout_below="@+id/RollNo_textLayout"
+        android:id="@+id/LoginPass_textLayout"
+        android:layout_below="@+id/LoginUname_textLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
         <EditText android:id="@+id/input_password"
@@ -61,7 +61,7 @@
         android:id="@+id/Amrita_Logo"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_above="@+id/RollNo_textLayout"
+        android:layout_above="@+id/LoginUname_textLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
         app:srcCompat="@mipmap/ic_launcher" />
@@ -72,7 +72,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="35dp"
         android:text="Don't Have an Account? Create one"
         android:onClick="gotoSignUp"/>
+
+    <TextView
+        android:id="@+id/launch_forgotpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:onClick="forgotPass"
+        android:layout_below="@+id/LoginPass_textLayout"
+        android:layout_alignRight="@+id/LoginPass_textLayout"
+        android:layout_marginRight="30dp"/>
 </RelativeLayout>
