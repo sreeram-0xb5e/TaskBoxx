@@ -1,5 +1,7 @@
 package com.example.taskboxx;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -47,6 +49,12 @@ public class Dashboard extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.getMenu().getItem(1).setChecked(true);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        Fragment dashboardFragment = new DashboardFragment();
+        fragmentManager.beginTransaction().replace(R.id.content_frame,dashboardFragment).commit();
+
     }
 
     @Override
@@ -87,16 +95,16 @@ public class Dashboard extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        FragmentManager fragmentManager = getFragmentManager();
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+        if (id == R.id.nav_my_account) {
+            Fragment myAccountFragment = new MyAccountFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_frame,myAccountFragment).commit();
+        } else if (id == R.id.nav_dashboard) {
+            Fragment dashboardFragment = new DashboardFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_frame,dashboardFragment).commit();
         } else if (id == R.id.nav_logout) {
             mAuth.getInstance().signOut();
-            Intent intent = new Intent(this,LoginActivity.class);
-            startActivity(intent);
             finish();
         }
 
