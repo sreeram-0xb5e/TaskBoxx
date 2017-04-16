@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "629462529132",
-    "firebase_url": "https://browsy-bc721.firebaseio.com",
-    "project_id": "browsy-bc721",
-    "storage_bucket": "browsy-bc721.appspot.com"
+    "project_number": "23719170467",
+    "firebase_url": "https://my-app-e5bdb.firebaseio.com",
+    "project_id": "my-app-e5bdb",
+    "storage_bucket": "my-app-e5bdb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:629462529132:android:50e3b5ef2ef861e3",
+        "mobilesdk_app_id": "1:23719170467:android:50e3b5ef2ef861e3",
         "android_client_info": {
           "package_name": "com.example.taskboxx"
         }
       },
       "oauth_client": [
         {
-          "client_id": "629462529132-b6vra23omvdfhos88osa7bvv0p1g8lrv.apps.googleusercontent.com",
+          "client_id": "23719170467-9gbikc8ea63o0cc95d8re0stigfc68vh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBsz9xV3HCn9UXJ6TOP2mlRNeTGVSDw9gE"
+          "current_key": "AIzaSyDAFDTRB19anG9_AYRSQT9CX7RVU0oUt2Q"
         }
       ],
       "services": {
