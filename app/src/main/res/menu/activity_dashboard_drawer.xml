@@ -10,6 +10,12 @@
             android:id="@+id/nav_dashboard"
             android:icon="@drawable/ic_dashboard_"
             android:title="Dashboard" />
+
+        <item
+            android:id="@+id/nav_recsys"
+            android:icon="@drawable/recsys"
+            android:title="Recommendations" />
+
     </group>
 
     <item android:title="Account">
