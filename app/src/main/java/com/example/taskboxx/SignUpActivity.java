@@ -81,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     mDatabase.child("users").child(userId).child("Name").setValue(u_name);
                                     mDatabase.child("users").child(userId).child("Username").setValue(u_username);
                                     mDatabase.child("users").child(userId).child("Age").setValue(u_age);
-                                    pd.hide();
+                                    pd.dismiss();
                                     Toast.makeText(SignUpActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
                                     Toast.makeText(SignUpActivity.this, "Please Log in to proceed", Toast.LENGTH_SHORT).show();
                                     finish();
