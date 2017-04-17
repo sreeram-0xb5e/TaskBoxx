@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.github.mikephil.charting.charts.PieChart;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity
@@ -31,15 +32,6 @@ public class Dashboard extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
