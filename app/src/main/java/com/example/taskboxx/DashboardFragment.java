@@ -2,7 +2,6 @@ package com.example.taskboxx;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +12,6 @@ import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -43,6 +41,7 @@ public class DashboardFragment extends Fragment {
     private ArrayList<Float> yData = new ArrayList<>();
     private ArrayList<String> xData = new ArrayList<>();
     PieChart pieChart;
+    ProgressDialog pd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,8 +50,12 @@ public class DashboardFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        pd = new ProgressDialog(Dashboard.getContext1());
+
 
         pieChart = (PieChart) rootView.findViewById(R.id.idPieChart);
+        pd.setMessage("Loading...");
+        pd.show();
 
         pieChart.setDescription(null);
         pieChart.setRotationEnabled(true);
@@ -109,6 +112,7 @@ public class DashboardFragment extends Fragment {
                 Toast.makeText(getActivity(), "You browse for " + type + "\n" + "for " + percent + "% of the time", Toast.LENGTH_LONG).show();
             }
 
+
             @Override
             public void onNothingSelected() {
 
@@ -141,6 +145,8 @@ public class DashboardFragment extends Fragment {
         colors.add(Color.MAGENTA);
 
         pieDataSet.setColors(colors);
+
+        pd.dismiss();
 
         //create pie data object
         PieData pieData = new PieData(pieDataSet);

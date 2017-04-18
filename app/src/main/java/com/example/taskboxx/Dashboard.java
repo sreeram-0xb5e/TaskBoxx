@@ -2,11 +2,8 @@ package com.example.taskboxx;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,13 +13,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.github.mikephil.charting.charts.PieChart;
+import com.example.taskboxx.AyncTasks.BrowserDataGetter;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseAuth mAuth;
+    private static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +28,8 @@ public class Dashboard extends AppCompatActivity
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        context = this;
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -47,6 +47,12 @@ public class Dashboard extends AppCompatActivity
         Fragment dashboardFragment = new DashboardFragment();
         fragmentManager.beginTransaction().replace(R.id.content_frame,dashboardFragment).commit();
 
+        new BrowserDataGetter().execute("");
+
+    }
+
+    public static Context getContext1(){
+        return context;
     }
 
     @Override
