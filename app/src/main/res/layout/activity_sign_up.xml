@@ -30,8 +30,7 @@
             android:layout_below="@+id/Explanation"
             android:layout_marginTop="20dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            app:hintTextAppearance="@style/TextAppearance.TextInputLayout">
+            android:layout_alignParentStart="true">
             <EditText android:id="@+id/input_Name_SignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,8 +48,7 @@
             android:layout_marginTop="20dp"
             android:layout_below="@+id/SignUpName_textLayout"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            app:hintTextAppearance="@style/TextAppearance.TextInputLayout">
+            android:layout_alignParentStart="true">
             <EditText android:id="@+id/input_Username_SignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,8 +66,7 @@
             android:layout_marginTop="20dp"
             android:layout_below="@+id/SignUpName_textLayout"
             android:layout_toEndOf="@+id/SignUpUsername_textLayout"
-            android:layout_toRightOf="@+id/SignUpUsername_textLayout"
-            app:hintTextAppearance="@style/TextAppearance.TextInputLayout">
+            android:layout_toRightOf="@+id/SignUpUsername_textLayout">
             <EditText android:id="@+id/input_Age_SignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,8 +84,7 @@
             android:layout_marginTop="20dp"
             android:layout_below="@+id/SignUpUsername_textLayout"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            app:hintTextAppearance="@style/TextAppearance.TextInputLayout1">
+            android:layout_alignParentStart="true">
 
             <EditText
                 android:id="@+id/input_email_SignUp"
@@ -108,8 +104,7 @@
             android:layout_marginTop="20dp"
             android:layout_below="@+id/SignUpemail_textLayout"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            app:hintTextAppearance="@style/TextAppearance.TextInputLayout1">
+            android:layout_alignParentStart="true" >
             <EditText android:id="@+id/input_NewPass_SignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,8 +122,7 @@
             android:layout_marginTop="20dp"
             android:layout_below="@+id/SignUpNewPass_textLayout"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            app:hintTextAppearance="@style/TextAppearance.TextInputLayout1">
+            android:layout_alignParentStart="true">
             <EditText android:id="@+id/input_RePass_SignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

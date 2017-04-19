@@ -44,8 +44,8 @@ public class Dashboard extends AppCompatActivity
         navigationView.getMenu().getItem(1).setChecked(true);
 
         FragmentManager fragmentManager = getFragmentManager();
-        Fragment dashboardFragment = new DashboardFragment();
-        fragmentManager.beginTransaction().replace(R.id.content_frame,dashboardFragment).commit();
+        Fragment DashboardFragment = new DashboardFragment();
+        fragmentManager.beginTransaction().replace(R.id.content_frame,DashboardFragment).commit();
 
         new BrowserDataGetter().execute("");
 
@@ -98,9 +98,12 @@ public class Dashboard extends AppCompatActivity
         if (id == R.id.nav_my_account) {
             Fragment myAccountFragment = new MyAccountFragment();
             fragmentManager.beginTransaction().replace(R.id.content_frame,myAccountFragment).commit();
-        } else if (id == R.id.nav_dashboard) {
-            Fragment dashboardFragment = new DashboardFragment();
-            fragmentManager.beginTransaction().replace(R.id.content_frame,dashboardFragment).commit();
+        } else if (id == R.id.nav_analytics) {
+            Fragment AnalyticsFragment = new AnalyticsFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_frame,AnalyticsFragment).commit();
+        } else if (id == R.id.nav_dashboard){
+            Fragment DashboardFragment = new DashboardFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_frame,DashboardFragment).commit();
         } else if (id == R.id.nav_logout) {
             mAuth.getInstance().signOut();
             finish();

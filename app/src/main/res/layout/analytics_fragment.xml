@@ -8,7 +8,7 @@
     android:paddingRight="16dp"
     android:paddingLeft="16dp"
     android:paddingBottom="16dp"
-    tools:context="com.example.taskboxx.DashboardFragment">
+    tools:context="com.example.taskboxx.AnalyticsFragment">
 
     <TextView
         android:layout_width="wrap_content"
