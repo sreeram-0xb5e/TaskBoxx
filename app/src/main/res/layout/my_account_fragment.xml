@@ -10,9 +10,107 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="My Account"/>
+        android:text="Your Account Details"
+        android:id="@+id/decription" />
 
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="@color/colorAccent"
+        android:layout_alignLeft="@+id/decription"
+        android:layout_alignStart="@+id/decription"
+        android:layout_below="@+id/decription"
+        android:layout_marginTop="35dp"
+        android:text="Name:" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="@color/colorAccent"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="45dp"
+        android:text="User Name:" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="@color/colorAccent"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignStart="@+id/username"
+        android:layout_below="@+id/username"
+        android:layout_marginTop="45dp"
+        android:text="Age:" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="@color/colorAccent"
+        android:layout_alignLeft="@+id/age"
+        android:layout_alignStart="@+id/age"
+        android:layout_below="@+id/age"
+        android:layout_marginTop="45dp"
+        android:text="Email ID:" />
+
+    <TextView
+        android:id="@+id/Name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColor="#000000"
+        android:layout_toEndOf="@+id/name"
+        android:layout_toRightOf="@+id/name"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/decription"
+        android:layout_marginTop="35dp" />
+    <TextView
+        android:id="@+id/UserName_text"
+        android:layout_width="wrap_content"
+        android:textSize="17dp"
+        android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/username"
+        android:layout_toRightOf="@+id/username"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/Name_text"
+        android:layout_marginTop="45dp" />
+    <TextView
+        android:id="@+id/Age_text"
+        android:layout_width="wrap_content"
+        android:textSize="17dp"
+        android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/age"
+        android:layout_toRightOf="@+id/age"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/UserName_text"
+        android:layout_marginTop="45dp" />
+
+    <TextView
+        android:id="@+id/Email_text"
+        android:layout_width="wrap_content"
+        android:textSize="17dp"
+        android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/email"
+        android:layout_toRightOf="@+id/email"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/Age_text"
+        android:layout_marginTop="45dp" />
 
 </RelativeLayout>

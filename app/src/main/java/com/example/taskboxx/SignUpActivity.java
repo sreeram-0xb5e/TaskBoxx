@@ -81,13 +81,14 @@ public class SignUpActivity extends AppCompatActivity {
                                     mDatabase.child("users").child(userId).child("Name").setValue(u_name);
                                     mDatabase.child("users").child(userId).child("Username").setValue(u_username);
                                     mDatabase.child("users").child(userId).child("Age").setValue(u_age);
+                                    mDatabase.child("users").child(userId).child("Email").setValue(u_email);
                                     pd.dismiss();
                                     Toast.makeText(SignUpActivity.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
                                     Toast.makeText(SignUpActivity.this, "Please Log in to proceed", Toast.LENGTH_SHORT).show();
                                     finish();
                                 } else {
-                                    pd.hide();
-                                    Toast.makeText(SignUpActivity.this, "Failed To Register!", Toast.LENGTH_SHORT).show();
+                                    pd.dismiss();
+                                    Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

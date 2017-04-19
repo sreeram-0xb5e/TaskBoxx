@@ -17,6 +17,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -25,8 +30,10 @@ public class LoginActivity extends AppCompatActivity {
     private EditText pass;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mDatabase;
     public ProgressDialog pd;
     public static final String TAG = "TAG";
+    private String name,email;
 
     @Override
     public void onStart() {
@@ -52,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         pd = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
             @Override
@@ -64,10 +72,24 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                name = (String) dataSnapshot.child("users").child(mAuth.getCurrentUser().getUid()).child("Name").getValue();
+                email = (String) dataSnapshot.child("users").child(mAuth.getCurrentUser().getUid()).child("Email").getValue();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     public void Login(View view) {
-        String email = Email.getText().toString();
+        final String email = Email.getText().toString();
         String password = pass.getText().toString();
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please enter the Email and Password!", Toast.LENGTH_SHORT).show();
@@ -82,12 +104,13 @@ public class LoginActivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 pd.dismiss();
                                 Log.w(TAG, "signInWithEmail:failed", task.getException());
-                                Toast.makeText(LoginActivity.this, task.getException().getMessage().toString(),
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, task.getException().getMessage().toString(), Toast.LENGTH_SHORT).show();
                             } else {
                                 pd.dismiss();
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 Intent dashboardintent = new Intent(LoginActivity.this, Dashboard.class);
+                                dashboardintent.putExtra("Name",name);
+                                dashboardintent.putExtra("Email",email);
                                 startActivity(dashboardintent);
                             }
                         }

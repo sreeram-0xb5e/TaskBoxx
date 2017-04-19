@@ -12,15 +12,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.taskboxx.AyncTasks.BrowserDataGetter;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseAuth mAuth;
     private static Context context;
+    TextView email, name;
+    String getname,getemail;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,11 @@ public class Dashboard extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         context = this;
+
+        bundle = getIntent().getExtras();
+        getname = bundle.getString("Name");
+        getemail = bundle.getString("Email");
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -42,6 +54,11 @@ public class Dashboard extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(1).setChecked(true);
+        View header = navigationView.getHeaderView(0);
+
+
+        name = (TextView) header.findViewById(R.id.LoginName);
+        email = (TextView) header.findViewById(R.id.LoginEmail);
 
         FragmentManager fragmentManager = getFragmentManager();
         Fragment DashboardFragment = new DashboardFragment();
@@ -69,6 +86,8 @@ public class Dashboard extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.dashboard, menu);
+        name.setText(getname);
+        email.setText(getemail);
         return true;
     }
 
