@@ -15,10 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.taskboxx.AyncTasks.BrowserDataGetter;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,8 +60,6 @@ public class Dashboard extends AppCompatActivity
         FragmentManager fragmentManager = getFragmentManager();
         Fragment DashboardFragment = new DashboardFragment();
         fragmentManager.beginTransaction().replace(R.id.content_frame,DashboardFragment).commit();
-
-        new BrowserDataGetter().execute("");
 
     }
 
@@ -114,18 +109,28 @@ public class Dashboard extends AppCompatActivity
 
         FragmentManager fragmentManager = getFragmentManager();
 
-        if (id == R.id.nav_my_account) {
-            Fragment myAccountFragment = new MyAccountFragment();
-            fragmentManager.beginTransaction().replace(R.id.content_frame,myAccountFragment).commit();
-        } else if (id == R.id.nav_analytics) {
-            Fragment AnalyticsFragment = new AnalyticsFragment();
-            fragmentManager.beginTransaction().replace(R.id.content_frame,AnalyticsFragment).commit();
-        } else if (id == R.id.nav_dashboard){
-            Fragment DashboardFragment = new DashboardFragment();
-            fragmentManager.beginTransaction().replace(R.id.content_frame,DashboardFragment).commit();
-        } else if (id == R.id.nav_logout) {
-            mAuth.getInstance().signOut();
-            finish();
+        switch (id) {
+            case R.id.nav_my_account: {
+                Fragment myAccountFragment = new MyAccountFragment();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, myAccountFragment).commit();
+                break;
+            } case R.id.nav_analytics: {
+                Fragment AnalyticsFragment = new AnalyticsFragment();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, AnalyticsFragment).commit();
+                break;
+            } case R.id.nav_dashboard: {
+                Fragment DashboardFragment = new DashboardFragment();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, DashboardFragment).commit();
+                break;
+            } case R.id.nav_logout: {
+                mAuth.getInstance().signOut();
+                finish();
+                break;
+            } default:{
+                Fragment AnalyticsFragment = new AnalyticsFragment();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, AnalyticsFragment).commit();
+                break;
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

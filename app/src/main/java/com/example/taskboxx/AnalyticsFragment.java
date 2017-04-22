@@ -76,13 +76,11 @@ public class AnalyticsFragment extends Fragment {
                 Log.d(TAG, "Hashmap values: "+values);
                 Set mapSet = (Set) values.entrySet();
                 Iterator mapIterator = mapSet.iterator();
-                int i=0;
                 while(mapIterator.hasNext())
                 {
                     Map.Entry mapEntry = (Map.Entry) mapIterator.next();
                     xData.add(mapEntry.getKey().toString());
                     yData.add(Double.valueOf((Double)mapEntry.getValue()).floatValue());
-                    i++;
                 }
                 Log.d(TAG, "String Tags: "+xData);
                 Log.d(TAG, "String Values: "+yData);
