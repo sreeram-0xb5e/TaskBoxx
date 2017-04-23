@@ -72,7 +72,12 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String selectedbookmark = bookmarks.get(position);
-                String URL = "http://"+bookmarkdetails.get(selectedbookmark);
+                String URL;
+                if (bookmarkdetails.get(selectedbookmark).contains("http://") || bookmarkdetails.get(selectedbookmark).contains("http://")){
+                    URL = bookmarkdetails.get(selectedbookmark);
+                } else {
+                    URL = "http://"+bookmarkdetails.get(selectedbookmark);
+                }
                 Toast.makeText(getActivity().getApplicationContext(), "Bookmark selected: "+selectedbookmark, Toast.LENGTH_SHORT).show();
                 Uri uri = Uri.parse(URL);
                 Intent BrowserIntent = new Intent(Intent.ACTION_VIEW,uri);
