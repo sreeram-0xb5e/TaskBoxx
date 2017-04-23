@@ -32,7 +32,7 @@ import static android.content.ContentValues.TAG;
 public class DashboardFragment extends Fragment {
 
     ArrayList<String> bookmarks;
-    HashMap<String,String> bookmarkdetails;
+    static HashMap<String,String> bookmarkdetails;
     ListView bookmarksView;
     DatabaseReference mDatabase;
     FirebaseAuth mAuth;
@@ -90,6 +90,4 @@ public class DashboardFragment extends Fragment {
         bookmarksView.setAdapter(arrayAdapter);
 
     }
-
-
 }

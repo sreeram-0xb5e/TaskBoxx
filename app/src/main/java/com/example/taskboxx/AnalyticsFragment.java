@@ -82,8 +82,6 @@ public class AnalyticsFragment extends Fragment {
                     xData.add(mapEntry.getKey().toString());
                     yData.add(Double.valueOf((Double)mapEntry.getValue()).floatValue());
                 }
-                Log.d(TAG, "String Tags: "+xData);
-                Log.d(TAG, "String Values: "+yData);
                 addDataSet();
             }
 
