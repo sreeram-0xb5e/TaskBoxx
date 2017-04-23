@@ -73,7 +73,7 @@ public class DashboardFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String selectedbookmark = bookmarks.get(position);
                 String URL;
-                if (bookmarkdetails.get(selectedbookmark).contains("http://") || bookmarkdetails.get(selectedbookmark).contains("http://")){
+                if (bookmarkdetails.get(selectedbookmark).contains("http://") || bookmarkdetails.get(selectedbookmark).contains("https://")){
                     URL = bookmarkdetails.get(selectedbookmark);
                 } else {
                     URL = "http://"+bookmarkdetails.get(selectedbookmark);

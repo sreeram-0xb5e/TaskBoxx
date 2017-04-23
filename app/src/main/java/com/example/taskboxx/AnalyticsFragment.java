@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -40,6 +41,7 @@ public class AnalyticsFragment extends Fragment {
     private DatabaseReference mDatabase;
     private ArrayList<Float> yData = new ArrayList<>();
     private ArrayList<String> xData = new ArrayList<>();
+    HashMap<String,Integer> type;
     PieChart pieChart;
     ProgressDialog pd;
 
@@ -51,6 +53,7 @@ public class AnalyticsFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         pd = new ProgressDialog(Dashboard.getContext1());
+        type = new HashMap<>();
 
 
         pieChart = (PieChart) rootView.findViewById(R.id.idPieChart);
@@ -72,15 +75,28 @@ public class AnalyticsFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                HashMap<String,Float> values = (HashMap)dataSnapshot.child("users").child(mAuth.getCurrentUser().getUid()).child("Data").getValue();
+                ArrayList<String> occur = new ArrayList<>();
+                HashMap<String,String> values = (HashMap)dataSnapshot.child("users").child(mAuth.getCurrentUser().getUid()).child("BookmarkType").getValue();
                 Log.d(TAG, "Hashmap values: "+values);
                 Set mapSet = (Set) values.entrySet();
                 Iterator mapIterator = mapSet.iterator();
                 while(mapIterator.hasNext())
                 {
                     Map.Entry mapEntry = (Map.Entry) mapIterator.next();
-                    xData.add(mapEntry.getKey().toString());
-                    yData.add(Double.valueOf((Double)mapEntry.getValue()).floatValue());
+                    occur.add(mapEntry.getValue().toString());
+                    type.put(mapEntry.getValue().toString(), Collections.frequency(occur,mapEntry.getValue().toString()));
+                }
+                Log.d(TAG, "hashes: "+type);
+                Set mapSet1 = (Set) type.entrySet();
+                Iterator mapIterator1 = mapSet1.iterator();
+                while(mapIterator1.hasNext()){
+                    Map.Entry mapEntry1 = (Map.Entry) mapIterator1.next();
+                    Log.d(TAG, "values.size(): " + values.size());
+                    xData.add(mapEntry1.getKey().toString());
+                    Log.d(TAG, "Type: "+mapEntry1.getKey().toString());
+                    float percentValue = (int)((((float) (Integer.parseInt(mapEntry1.getValue().toString())))/values.size())*100);
+                    yData.add(percentValue);
+                    Log.d(TAG, "Percent: "+percentValue);
                 }
                 addDataSet();
             }
@@ -101,11 +117,12 @@ public class AnalyticsFragment extends Fragment {
                 for(int i = 0; i < yData.size(); i++){
                     if(yData.get(i) == Float.parseFloat(percent)){
                         pos1 = i;
+                        Log.d(TAG, "onValueSelected: "+pos1);
                         break;
                     }
                 }
-                String type = xData.get(pos1);
-                Toast.makeText(getActivity(), "You browse for " + type + "\n" + "for " + percent + "% of the time", Toast.LENGTH_LONG).show();
+                String type1 = xData.get(pos1);
+                Toast.makeText(getActivity(), "You browse for " + type1 + "\n" + "for " + percent + "% of the time", Toast.LENGTH_LONG).show();
             }
 
 
@@ -119,6 +136,9 @@ public class AnalyticsFragment extends Fragment {
     }
 
     private void addDataSet() {
+
+        Log.d(TAG, "xData: "+xData);
+        Log.d(TAG, "yData: "+yData);
 
         final ArrayList<PieEntry> yEntrys = new ArrayList<>();
 
